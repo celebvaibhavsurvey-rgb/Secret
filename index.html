@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Universe ❤️ | Valentine's Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff6b9d, #c44569, #ff8fab);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.93);
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #ff4081, #ff79a6);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .heart-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 3rem;
+        }
+        
+        .heart-icon:nth-child(1) { top: 20px; left: 10%; }
+        .heart-icon:nth-child(2) { top: 40px; right: 15%; }
+        .heart-icon:nth-child(3) { bottom: 30px; left: 20%; }
+        .heart-icon:nth-child(4) { bottom: 20px; right: 10%; }
+        
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .question-container {
+            margin-bottom: 40px;
+        }
+        
+        .question {
+            font-size: 2.2rem;
+            color: #ff4081;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 120px;
+        }
+        
+        .valentine-btn {
+            padding: 18px 45px;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+        
+        #yesBtn {
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            color: white;
+        }
+        
+        #noBtn {
+            background: linear-gradient(to right, #f44336, #ff7961);
+            color: white;
+            position: relative;
+        }
+        
+        #yesBtn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .celebration {
+            background: linear-gradient(135deg, #ffeb3b, #ff9800);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            animation: pulse 1.5s infinite alternate;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
+        }
+        
+        .celebration h2 {
+            color: #d32f2f;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .celebration p {
+            font-size: 1.4rem;
+            color: #5d4037;
+            margin-bottom: 20px;
+        }
+        
+        .secret-message {
+            background: linear-gradient(135deg, #e1bee7, #ce93d8);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 6px solid #7b1fa2;
+        }
+        
+        .secret-message p {
+            font-size: 1.5rem;
+            color: #4a148c;
+            font-weight: 600;
+        }
+        
+        .universe-icon {
+            font-size: 4rem;
+            color: #ff4081;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eee;
+            color: #777;
+        }
+        
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #ff4081;
+            opacity: 0;
+            animation: floatUp 5s linear forwards;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .question {
+                font-size: 1.8rem;
+            }
+            
+            .valentine-btn {
+                padding: 15px 35px;
+                font-size: 1.5rem;
+            }
+            
+            .celebration h2 {
+                font-size: 2rem;
+            }
+            
+            .secret-message p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <i class="heart-icon fas fa-heart"></i>
+            <i class="heart-icon fas fa-heart"></i>
+            <i class="heart-icon fas fa-heart"></i>
+            <i class="heart-icon fas fa-heart"></i>
+            
+            <h1>For My Universe ❤️</h1>
+            <p>Mehnaz, you're the center of my cosmos</p>
+        </div>
+        
+        <div class="content">
+            <div class="universe-icon">
+                <i class="fas fa-globe-americas"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            
+            <div class="question-container">
+                <h2 class="question">Will you be my Valentine?</h2>
+                
+                <div class="buttons-container">
+                    <div class="hearts-container" id="heartsContainer"></div>
+                    
+                    <button class="valentine-btn" id="yesBtn">YES!</button>
+                    <button class="valentine-btn" id="noBtn">No</button>
+                </div>
+            </div>
+            
+            <div id="celebration" class="hidden">
+                <div class="celebration">
+                    <h2>Yay! 🎉 Celebration Time! 🎊</h2>
+                    <p>You've made me the happiest person in the universe! 🌟</p>
+                    <div class="universe-icon">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    
+                    <div class="secret-message">
+                        <p><i class="fas fa-lock"></i> Sweet Secret Message:</p>
+                        <p>"I know you touched YES because I love you infinity ❤️ and you are my universe Mehnaz 😘"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with <i class="fas fa-heart" style="color:#ff4081;"></i> for my one and only universe</p>
+            <p>Happy Valentine's Day! 💝</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const celebration = document.getElementById('celebration');
+            const heartsContainer = document.getElementById('heartsContainer');
+            const questionContainer = document.querySelector('.question-container');
+            
+            // Counter for how many times "No" button has been hovered
+            let noHoverCount = 0;
+            
+            // Function to create floating hearts
+            function createHearts(count) {
+                for (let i = 0; i < count; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('floating-heart');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    
+                    // Random position
+                    const leftPos = Math.random() * 100;
+                    heart.style.left = `${leftPos}%`;
+                    
+                    // Random animation delay
+                    const delay = Math.random() * 5;
+                    heart.style.animationDelay = `${delay}s`;
+                    
+                    // Random size
+                    const size = 0.5 + Math.random() * 1;
+                    heart.style.fontSize = `${size}rem`;
+                    
+                    heartsContainer.appendChild(heart);
+                    
+                    // Remove heart after animation completes
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }
+            }
+            
+            // Handle the "No" button hover - make it move away
+            noBtn.addEventListener('mouseover', function() {
+                noHoverCount++;
+                
+                // Create some floating hearts
+                createHearts(3);
+                
+                // Get button dimensions and container dimensions
+                const containerRect = document.querySelector('.buttons-container').getBoundingClientRect();
+                const buttonRect = noBtn.getBoundingClientRect();
+                
+                // Calculate maximum positions
+                const maxX = containerRect.width - buttonRect.width;
+                const maxY = containerRect.height - buttonRect.height;
+                
+                // Generate random position within container
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+                
+                // Move the button to random position
+                noBtn.style.position = 'absolute';
+                noBtn.style.left = `${randomX}px`;
+                noBtn.style.top = `${randomY}px`;
+                
+                // Change text after a few attempts
+                if (noHoverCount === 3) {
+                    noBtn.textContent = "Are you sure?";
+                } else if (noHoverCount === 5) {
+                    noBtn.textContent = "Please say YES!";
+                } else if (noHoverCount === 7) {
+                    noBtn.textContent = "I know you want to!";
+                } else if (noHoverCount > 9) {
+                    noBtn.textContent = "Just click YES!";
+                }
+            });
+            
+            // Handle the "Yes" button click
+            yesBtn.addEventListener('click', function() {
+                // Create lots of floating hearts
+                createHearts(50);
+                
+                // Show celebration message
+                celebration.classList.remove('hidden');
+                
+                // Hide the question and buttons
+                questionContainer.style.opacity = '0';
+                questionContainer.style.height = '0';
+                questionContainer.style.overflow = 'hidden';
+                questionContainer.style.transition = 'all 0.5s ease';
+                
+                // Change header text
+                document.querySelector('.header h1').textContent = "You Said YES! 🎉";
+                document.querySelector('.header p').textContent = "My universe has accepted me! ❤️";
+                
+                // Create continuous hearts
+                setInterval(() => createHearts(2), 300);
+                
+                // Play a celebration sound (optional)
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    playCelebrationSound(audioContext);
+                } catch (e) {
+                    console.log("Audio not supported");
+                }
+            });
+            
+            // Function to play a simple celebration sound using Web Audio API
+            function playCelebrationSound(audioContext) {
+                // Create oscillator for a happy sound
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Set up sound parameters
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                oscillator.type = 'sine';
+                
+                // Fade out
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            }
+            
+            // Create initial floating hearts
+            setInterval(() => createHearts(1), 1000);
+        });
+    </script>
+</body>
+</html>
